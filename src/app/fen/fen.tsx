@@ -32,7 +32,7 @@ const Fen = () => {
                     </p>
                     <br/>
                     <div className='flex flex-col gap-8'>
-                        <input value={fenPosition} onChange={(e: { target: { value: any; }; })=>setFenPosition(e.target.value)} className='max-lg:flex-auto h-8 rounded px-2 text-black'></input>
+                        <input value={fenPosition} onChange={(e: React.ChangeEvent<HTMLInputElement>)=>setFenPosition(e.target.value)} className='max-lg:flex-auto h-8 rounded px-2 text-black'></input>
                         <button 
                         onClick={handleEvaluateButtonClick}
                         className='mx-auto w-auto border-2 text-white px-4 py-2 rounded-2xl flex items-center gap-2 hover:gap-3 ease hover:text-black hover:bg-white'

@@ -6,13 +6,12 @@ import { ChevronLeft, ChevronRight, Cog, FlipVertical2, RotateCcw, History, X } 
 import { useRouter, useSearchParams } from 'next/navigation'
 import React, { useEffect, useMemo, useState } from 'react'
 import { Chessboard, ChessboardDnDProvider } from 'react-chessboard'
-import { Arrow, Piece as ReactChessboardPiece } from 'react-chessboard/dist/chessboard/types';
+import { Piece as ReactChessboardPiece } from 'react-chessboard/dist/chessboard/types';
 import Image from 'next/image'
 import {
   Dialog,
   DialogClose,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,

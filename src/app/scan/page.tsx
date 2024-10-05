@@ -1,8 +1,4 @@
-import React, { useState } from 'react'
-import ImageDropzone from '@/components/ImageDropzone';
-import { FileWithPath } from 'react-dropzone';
-import Image from 'next/image';
-import { uploadFile } from '@/components/utils/uploadFile';
+import React from 'react'
 import { Metadata } from 'next';
 import Scan from './scan';
 

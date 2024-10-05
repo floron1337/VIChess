@@ -1,8 +1,6 @@
 'use client'
 import React, { useState } from 'react'
-import Image from "next/image";
-import Link from 'next/link';
-import { Focus, PenTool, Play } from 'lucide-react';
+import { PenTool, Play } from 'lucide-react';
 import { validateFen } from 'chess.js';
 import { useRouter } from 'next/navigation';
 

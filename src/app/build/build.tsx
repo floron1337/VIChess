@@ -1,9 +1,6 @@
 'use client'
-import { Switch } from '@/components/ui/switch';
-import { Piece, Chess, Square, validateFen, PieceSymbol, Color } from 'chess.js';
+import { Chess, Square, validateFen, PieceSymbol, Color } from 'chess.js';
 import { Check, FlipVertical2, Play, RotateCcw, Trash2 } from 'lucide-react';
-import { Metadata } from 'next';
-import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import React, { useMemo, useState } from 'react'
 import { Chessboard, ChessboardDnDProvider, SparePiece } from 'react-chessboard'

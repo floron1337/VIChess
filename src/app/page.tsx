@@ -1,5 +1,4 @@
-import Footer from "@/components/Footer";
-import { Focus, Github, LogIn, PenTool, SquarePlus } from "lucide-react";
+import { Focus, Github, PenTool, SquarePlus } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";

@@ -30,6 +30,7 @@ export default function Annotate(){
     const canvasRef = useRef<HTMLCanvasElement | null>(null)
     const imageRef = useRef<ImageRef | null>(null);
     const [points, setPoints] = useState<Point[]>([])
+    const [boardCorners, setBoardCorners] = useState<Point[]>([])
 
     const reloadImage = () => {
         const canvas = canvasRef.current
@@ -128,12 +129,11 @@ export default function Annotate(){
 
         const { offsetX, offsetY, scaledWidth, scaledHeight, originalWidth, originalHeight } = imageRef.current;
 
-        let boardCorners: Point[] = []
-
+        setBoardCorners([])
         points.forEach(point => {
             const imageX = Math.round(((point.x - offsetX) / scaledWidth) * originalWidth); 
             const imageY = Math.round(((point.y - offsetY) / scaledHeight) * originalHeight);
-            boardCorners.push({x: imageX, y: imageY})
+            setBoardCorners([...boardCorners, {x: imageX, y: imageY}])
         });
         sendData(boardCorners)
     }

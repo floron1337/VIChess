@@ -2,7 +2,7 @@
 import { Chess, Square, validateFen, PieceSymbol, Color } from 'chess.js';
 import { Check, FlipVertical2, Play, RotateCcw, Trash2 } from 'lucide-react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import React, { useMemo, useState } from 'react'
+import React, { Suspense, useMemo, useState } from 'react'
 import { Chessboard, ChessboardDnDProvider, SparePiece } from 'react-chessboard'
 import { Piece as ReactChessboardPiece } from 'react-chessboard/dist/chessboard/types';
 
@@ -101,6 +101,7 @@ const Build = () => {
     const pieces = ["wP", "wN", "wB", "wR", "wQ", "wK", "bP", "bN", "bB", "bR", "bQ", "bK"];
 
     return (
+        <Suspense>
         <main className='flex flex-col items-center justify-center flex-1 bg-gradient-dark max-lg:pt-8'>
             <div className='w-[30vw] max-lg:w-[80vw] py-8'>
                 <ChessboardDnDProvider>
@@ -169,6 +170,7 @@ const Build = () => {
                 </ChessboardDnDProvider>
             </div>
         </main>
+        </Suspense>
     )
 }
 

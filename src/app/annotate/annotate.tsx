@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react'
+import React, { Suspense, useEffect, useRef, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ChevronRight, RotateCcw } from 'lucide-react';
 
@@ -155,6 +155,7 @@ export default function Annotate(){
     }
 
     return (
+        <Suspense>
         <main className="flex justify-center pb-16 bg-gradient-dark flex-1">
             <div className="w-2/3 flex gap-4 p-24 border-l-2 border-b-2 text-white items-center flex-col max-lg:p-8 max-lg:w-full overflow-hidden">
                 <canvas
@@ -179,6 +180,7 @@ export default function Annotate(){
                 </div>  : <h1 className='text-3xl max-lg:text-xl'>Please click on the 4 corners of the board</h1>}
             </div>
         </main>
+        </Suspense>
     )
 }
 

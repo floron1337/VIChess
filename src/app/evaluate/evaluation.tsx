@@ -4,7 +4,7 @@ import Engine from '@/components/utils/engine'
 import { Chess, Move, Square, validateFen } from 'chess.js'
 import { ChevronLeft, ChevronRight, Cog, FlipVertical2, RotateCcw, History, X } from 'lucide-react'
 import { useRouter, useSearchParams } from 'next/navigation'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { Suspense, useEffect, useMemo, useState } from 'react'
 import { Chessboard, ChessboardDnDProvider } from 'react-chessboard'
 import { Piece as ReactChessboardPiece } from 'react-chessboard/dist/chessboard/types';
 import Image from 'next/image'
@@ -156,6 +156,7 @@ const Evaluation = () => {
     }
 
     return (
+        <Suspense>
         <main className='flex flex-row items-center justify-center flex-1 bg-gradient-dark max-lg:pt-8'>
             <div className='w-full py-8 max-md:py-0'>
                 <Dialog>
@@ -254,6 +255,7 @@ const Evaluation = () => {
                 </ChessboardDnDProvider>
             </div>
         </main>
+        </Suspense>
     )
 }
 

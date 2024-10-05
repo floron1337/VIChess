@@ -53,7 +53,7 @@ export default class Engine {
       depth: Number(uciMessage.match(/ depth\s+(\S+)/)?.[1]) ?? 0,
     };
   }
-
+  
   init() {
     this.stockfish.postMessage("uci");
     this.stockfish.postMessage("isready");
@@ -64,7 +64,7 @@ export default class Engine {
     });
   }
 
-  onReady(callback: any) {
+  onReady(callback: () => void) {
     this.onMessage(({ uciMessage }) => {
       if (uciMessage === "readyok") {
         callback();
@@ -72,7 +72,7 @@ export default class Engine {
     });
   }
 
-  evaluatePosition(fen: any, depth = 12) {
+  evaluatePosition(fen: string, depth = 12) {
     if (depth > 24) depth = 24;
 
     this.stockfish.postMessage(`position fen ${fen}`);

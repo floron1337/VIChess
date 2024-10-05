@@ -101,7 +101,6 @@ const Build = () => {
     const pieces = ["wP", "wN", "wB", "wR", "wQ", "wK", "bP", "bN", "bB", "bR", "bQ", "bK"];
 
     return (
-        <Suspense>
         <main className='flex flex-col items-center justify-center flex-1 bg-gradient-dark max-lg:pt-8'>
             <div className='w-[30vw] max-lg:w-[80vw] py-8'>
                 <ChessboardDnDProvider>
@@ -170,7 +169,6 @@ const Build = () => {
                 </ChessboardDnDProvider>
             </div>
         </main>
-        </Suspense>
     )
 }
 

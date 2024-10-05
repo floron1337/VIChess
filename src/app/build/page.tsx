@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Build from './build'
 import { Metadata } from 'next';
 
@@ -9,7 +9,9 @@ export const metadata: Metadata = {
 
 const BuildPage = () => {
     return (
-        <Build/>
+        <Suspense>
+            <Build/>
+        </Suspense>
     )
 }
 

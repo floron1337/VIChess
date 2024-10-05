@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Evaluation from './evaluation'
 import { Metadata } from 'next';
 
@@ -9,7 +9,9 @@ export const metadata: Metadata = {
 
 const EvaluationPage = () => {
     return (
-      <Evaluation/>
+      <Suspense>
+        <Evaluation/>
+      </Suspense>
     )
 }
 

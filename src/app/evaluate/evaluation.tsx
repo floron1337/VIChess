@@ -156,7 +156,6 @@ const Evaluation = () => {
     }
 
     return (
-        <Suspense>
         <main className='flex flex-row items-center justify-center flex-1 bg-gradient-dark max-lg:pt-8'>
             <div className='w-full py-8 max-md:py-0'>
                 <Dialog>
@@ -255,7 +254,6 @@ const Evaluation = () => {
                 </ChessboardDnDProvider>
             </div>
         </main>
-        </Suspense>
     )
 }
 

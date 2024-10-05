@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Annotate from './annotate'
 import { Metadata } from 'next';
 
@@ -10,7 +10,9 @@ export const metadata: Metadata = {
 
 const AnnotatePage = () => {
     return (
-        <Annotate/>
+        <Suspense>
+            <Annotate/>
+        </Suspense>
     )
 }
 

@@ -105,7 +105,7 @@ const Scan: React.FC<ImageDropzoneProps> = ({ onFileAccepted }) => {
             
                 {preview && 
                     <div className='flex flex-col items-center mt-8'>
-                        <h1 className='text-4xl'>Everything's good?</h1>
+                        <h1 className='text-4xl'>Everything&apos;s good?</h1>
                         <p className='text-sm'>Make sure that all chess pieces and board corners are visible.</p>
                         <div className='mt-4 flex gap-4'>
                             <button onClick={()=>setPreview(null)} className='flex gap-2 px-4 py-2 border rounded-2xl hover:bg-white hover:text-black ease'>

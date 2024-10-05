@@ -172,7 +172,7 @@ const Evaluation = () => {
                     </DialogHeader>
                     <div className='overflow-y-auto justify-center inline-flex flex-wrap gap-4 mt-4 h-[70vh]'>
                     {window.innerWidth < 768 && gameHistory.map((move, index)=>
-                      <button className={`text-white flex flex-col items-center cursor-pointer ${index > currentMove && 'opacity-30'}`} onClick={() => revertToMove(index)}>
+                      <button key={index} className={`text-white flex flex-col items-center cursor-pointer ${index > currentMove && 'opacity-30'}`} onClick={() => revertToMove(index)}>
                         <div className='w-36'>
                           <Chessboard position={move.after} arePiecesDraggable={false} customArrows={[[move.from as Square, move.to as Square, "rgb(8, 145, 178)"]]}/>
                         </div>
@@ -206,7 +206,7 @@ const Evaluation = () => {
                         <h1 className='text-white text-3xl'>Move History</h1>
                         <div className='overflow-y-auto inline-flex flex-wrap gap-4 mt-4'>
                           {window.innerWidth >= 768 && gameHistory.map((move, index)=>
-                            <button className={`text-white flex flex-col items-center cursor-pointer ${index > currentMove && 'opacity-30'}`} onClick={() => revertToMove(index)}>
+                            <button key={index} className={`text-white flex flex-col items-center cursor-pointer ${index > currentMove && 'opacity-30'}`} onClick={() => revertToMove(index)}>
                               <div className='w-36'>
                                 <Chessboard position={move.after} arePiecesDraggable={false} customArrows={[[move.from as Square, move.to as Square, "rgb(8, 145, 178)"]]}/>
                               </div>

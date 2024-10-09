@@ -24,7 +24,7 @@ const Navbar = () => {
                     <Link href='/scan' className='flex gap-2 items-center ease hover:scale-105'><Focus />SCAN</Link>
                     <Link href='/build' className='flex gap-2 items-center ease hover:scale-105'><Image src={'/static/icons/chessboard.svg'} alt='chessboard' width={20} height={20}/>BUILD BOARD</Link>
                     <Link href='/fen' className='flex gap-2 items-center ease hover:scale-105'><PenTool />ENTER FEN</Link>
-                    <Link href='' className='text-white flex items-center text-xl gap-2 ease bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-2xl font-semibold'>
+                    <Link target='_blank' href='https://github.com/floron1337/VIChess/blob/main/README.md' className='text-white flex items-center text-xl gap-2 ease bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-2xl font-semibold'>
                         PROJECT GIT <Github />
                     </Link>
                     <button className='ml-auto mr-auto' onClick={()=>setExpandedMenu(false)}><X className='size-12'/></button>
@@ -37,7 +37,7 @@ const Navbar = () => {
                 <Link href='/build' className='flex gap-2 items-center ease hover:scale-105'><Image src={'/static/icons/chessboard.svg'} alt='chessboard' width={20} height={20}/>BUILD BOARD</Link>
                 <Link href='/fen' className='flex gap-2 items-center ease hover:scale-105'><PenTool />ENTER FEN</Link>
             </div>
-            <Link href='' className='text-white flex items-center text-xl gap-2 ease bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-2xl font-semibold max-xl:hidden'>
+            <Link target='_blank' href='https://github.com/floron1337/VIChess/blob/main/README.md' className='text-white flex items-center text-xl gap-2 ease bg-cyan-600 hover:bg-cyan-700 px-4 py-2 rounded-2xl font-semibold max-xl:hidden'>
                 PROJECT GIT <Github />
             </Link>
         </nav>

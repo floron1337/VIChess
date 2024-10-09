@@ -1,0 +1,8 @@
+Pillow~=9.5.0
+matplotlib~=3.7.5
+pandas~=2.0.3
+numpy~=1.24.4
+opencv-python~=4.7.0.72
+ultralytics~=8.0.239
+shapely~=2.0.6
+fastapi[standard]

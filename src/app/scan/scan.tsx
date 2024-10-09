@@ -7,6 +7,7 @@ import { ChevronRight, Github, RotateCcw, Upload } from 'lucide-react'
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 import { uploadFile } from '@/components/utils/uploadFile';
+import Link from 'next/link';
 
 interface ImageDropzoneProps {
   onFileAccepted?: (file: File) => void;
@@ -47,10 +48,11 @@ const Scan: React.FC<ImageDropzoneProps> = ({ onFileAccepted }) => {
       const formData = new FormData()
       formData.append('file', acceptedFile)
       const ok = await uploadFile(formData)
-
+      
       if(ok){
         router.push(`/annotate?img=${acceptedFile.name}`)
       }
+      
     }
   }
 
@@ -65,10 +67,11 @@ const Scan: React.FC<ImageDropzoneProps> = ({ onFileAccepted }) => {
                         <p className='text-sm'>Advanced AI Computer Vision for Image Recognition</p>
                     </div>
                     <div className='flex flex-col items-center justify-center gap-4 mb-2'>
-                    <h3 className='text-xl font-semibold'>!IMPORTANT: Make sure the API Endpoint is active.</h3>
-                    <button className='bg-cyan-600 hover:bg-cyan-700 ease px-4 py-2 flex gap-2 rounded-2xl'>
+                    <h3 className='text-xl font-semibold'>!IMPORTANT: This feature will not work in the online example.</h3>
+                    <h4>On your local machine, make sure the API Endpoint is active.</h4>
+                    <Link target="_blank" href="https://github.com/floron1337/VIChess/blob/main/README.md" className='bg-cyan-600 hover:bg-cyan-700 ease px-4 py-2 flex gap-2 rounded-2xl'>
                         READ MORE <Github/>
-                    </button>
+                    </Link>
                     </div>
                 </>
                 }

@@ -30,7 +30,6 @@ export default function Annotate(){
     const canvasRef = useRef<HTMLCanvasElement | null>(null)
     const imageRef = useRef<ImageRef | null>(null);
     const [points, setPoints] = useState<Point[]>([])
-    const [boardCorners, setBoardCorners] = useState<Point[]>([])
 
     const reloadImage = () => {
         const canvas = canvasRef.current
@@ -129,29 +128,34 @@ export default function Annotate(){
 
         const { offsetX, offsetY, scaledWidth, scaledHeight, originalWidth, originalHeight } = imageRef.current;
 
-        setBoardCorners([])
+        let boardCorners: Point[] = []
         points.forEach(point => {
             const imageX = Math.round(((point.x - offsetX) / scaledWidth) * originalWidth); 
             const imageY = Math.round(((point.y - offsetY) / scaledHeight) * originalHeight);
-            setBoardCorners([...boardCorners, {x: imageX, y: imageY}])
+            boardCorners = [...boardCorners, {x: imageX, y: imageY} as Point]
         });
+
         sendData(boardCorners)
     }
 
     const sendData = async(board_corners: Point[]) => {
-        const response = await fetch('http://127.0.0.1:8000/api/scan', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                img_name: paramsImg,
-                board_corners
+        try{
+            const response = await fetch('http://127.0.0.1:8000/api/scan', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    img_name: paramsImg,
+                    board_corners
+                })
             })
-        })
-        const data = response.json().then((result) => {
-            router.push(`/build?fen=${result.boardFen}_w_KQkq_-_0_1`)
-        })
+            const data = response.json().then((result) => {
+                router.push(`/build?fen=${result.boardFen}_w_KQkq_-_0_1`)
+            })
+        }catch(err){
+            console.log(err)
+        }
     }
 
     return (

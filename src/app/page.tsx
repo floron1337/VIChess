@@ -68,7 +68,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <Image src='/static/img/scan.jpg' alt='' width={800} height={800} className="w-1/2 max-lg:w-full"/>
+          <Image src='/static/img/scan.JPG' alt='' width={800} height={800} className="w-1/2 max-lg:w-full"/>
         </div>
       </section>
       <section className="flex justify-center py-16 bg-gradient-dark text-white">
@@ -117,7 +117,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <Image src='/static/img/fen.jpg' alt='' width={800} height={800} className="w-1/2 max-lg:w-full"/>
+          <Image src='/static/img/fen.JPG' alt='' width={800} height={800} className="w-1/2 max-lg:w-full"/>
         </div>
       </section>
       <section className="flex justify-center pb-16 bg-gradient-dark text-white">
@@ -126,7 +126,7 @@ export default function Home() {
           <p>VIChess is an open source project, free to use and improve. If you like my work, buy me a coffe :)</p>
           <br/>
           <div className='flex gap-8 max-lg:flex-col'>
-            <Link href='/' className='text-white flex items-center text-xl gap-2 ease hover:bg-cyan-700 bg-cyan-600 px-8 py-2 rounded-2xl font-semibold'>
+            <Link href='https://github.com/floron1337/VIChess/' target='_blank' className='text-white flex items-center text-xl gap-2 ease hover:bg-cyan-700 bg-cyan-600 px-8 py-2 rounded-2xl font-semibold'>
               GITHUB <Github />
             </Link>
             <Link href='/' className='text-white flex items-center text-xl gap-2 ease hover:bg-board-hover bg-board px-8 py-2 rounded-2xl font-semibold'>

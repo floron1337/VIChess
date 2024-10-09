@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# VIChess
+[https://vichess.vercel.app/](https://vichess.vercel.app/)
 
-## Getting Started
+![image](https://i.ibb.co/LknGVQg/manual.jpg)
+### Built by Florin Venis, Web Developer
 
-First, run the development server:
+Upload your game board images and let our advanced AI analyze your moves, offering real-time insights and strategies to help you improve your chess skills.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This project is built by only one developer, solely to demonstrate his skills.
+
+Feel free to build upon and improve this project, giving credit where it is due.
+## Inspiration, Credits
+https://github.com/shainisan/real-life-chess-vision
+
+https://github.com/Clariity/react-chessboard/tree/main
+
+# Getting Started
+
+### Frontend
+This project uses NextJS as its Frontend framework.
+
+- First, download all the required modules (in this example we'll be using nodeJS, but yarn, pnpm and bun are also accepted):
+
+
+```sh
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- After installing all the required modules, to start up the project run:
+```sh
+npm run dev
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Learn More
+Everything in the project except the Scan page is working now!
 
-To learn more about Next.js, take a look at the following resources:
+### Backend
+This project uses FastAPI to receive and process images. For the AI Image processing, we are using YOLOv8 from Ultralytics. Read more about the image processing part by reading [Shai Nisan's Repository](https://github.com/shainisan/real-life-chess-vision).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Start by accessing the `/scan_api` folder
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Install all the API requirements (create a Virtual Environment first):
+```
+pip install -r requirements.txt
+```
 
-## Deploy on Vercel
+- Download and drop into the folder `/scan_api` an AI model for your Chessboard:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    - [Original Model](https://onedrive.live.com/?authkey=%21AF%2Du7EjxE%5FFIkco&id=D75A1BACEEF1CA04%2168580&cid=D75A1BACEEF1CA04&parId=root&parQt=sharedby&o=OneUp) - Bigger
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    - [Personal Model](https://1drv.ms/u/s!Aiwhxuyy_4jca2Jx8DmDG_L2C1o?e=Eu3LKf) - Custom for my board
+
+- Now, to get the API running:
+
+```
+fastapi dev main.py
+```
+
+And you're done, VIChess is now fully working.
+
+# Known issues
+- The AI Model has a very low accuracy for boards it hasn't seen before. That's why I've trained a new Model for my own board which is all right.
+
+- The images need a better place to be stored, like AWS (or an equivalent).
+
+- The access to the API should be regulated to prevent attacks.
+
+- NextJS has a problem with the Stockfish Web Worker. Maybe think of another API just for Stockfish.

@@ -1,70 +1,108 @@
-# VIChess
-[https://vichess.vercel.app/](https://vichess.vercel.app/)
+# VIChess 
+A sleek, open-source chess analyzer powered by Stockfish. Upload your game board images and let advanced AI analyze your moves, offering real-time insights and strategies to help improve your chess skills. This project is a solo showcase of full-stack development and machine learning experiments.
 
-![image](https://i.ibb.co/LknGVQg/manual.jpg)
-### Built by Florin Venis, Web Developer
+<img width="1916" height="992" alt="Screenshot from 2025-07-11 16-08-51" src="https://github.com/user-attachments/assets/9349a371-db08-4d26-b2bd-4b7ab5958d4b" />
+<img width="1916" height="992" alt="Screenshot from 2025-07-11 16-08-51" src="https://github.com/user-attachments/assets/50c522a4-8e9b-4ab8-9907-6ad34587c0a9" />
+<li> Project link: <a href="https://vichess.vercel.app/">vichess.vercel.app</a> </li>
 
-Upload your game board images and let our advanced AI analyze your moves, offering real-time insights and strategies to help you improve your chess skills.
+---
 
-This project is built by only one developer, solely to demonstrate his skills.
+## Features
+- **Scan Board**  
+  Upload a photo or scan a real chessboard with your camera to detect piece placement.
+- **Manual Board Editor**  
+  Recreate any chess position manually for analysis.
+- **FEN Input**  
+  Paste a FEN string to instantly load and analyze any position.
+- **Stockfish Engine Integration**  
+  Analyze positions using one of the strongest open-source chess engines.
 
-Feel free to build upon and improve this project, giving credit where it is due.
-## Inspiration, Credits
-https://github.com/shainisan/real-life-chess-vision
+---
 
-https://github.com/Clariity/react-chessboard/tree/main
+## Why VIChess?
+- Combines real-world board scanning with engine analysis for seamless experience.
+- Fully open source and free—no registration needed.
+- Built by a developer as a technical showcase.
+- Extensible project with potential for UI/UX improvements, better storage, engine and model tweaks, etc.
 
-# Getting Started
+---
+
+## Tech Stack
+- **Frontend:** Next.js, React  
+- **Backend:** FastAPI (Python)  
+- **Computer Vision:** YOLOv8 (Ultralytics) to detect pieces from images  
+- **Chess Engine:** Stockfish via Web Worker  
+
+---
+
+## Getting Started
 
 ### Frontend
-This project uses NextJS as its Frontend framework.
-
-- First, download all the required modules (in this example we'll be using nodeJS, but yarn, pnpm and bun are also accepted):
-
-
-```sh
+```bash
+git clone https://github.com/floron1337/VIChess.git
+cd VIChess
 npm install
-```
-
-- After installing all the required modules, to start up the project run:
-```sh
 npm run dev
-
 ```
 
-- Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Backend Setup (Scan API)
 
-Everything in the project except the Scan page is working now!
+- Navigate into the backend directory and set up the environment:
 
-### Backend
-This project uses FastAPI to receive and process images. For the AI Image processing, we are using YOLOv8 from Ultralytics. Read more about the image processing part by reading [Shai Nisan's Repository](https://github.com/shainisan/real-life-chess-vision).
-
-- Start by accessing the `/scan_api` folder
-
-- Install all the API requirements (create a Virtual Environment first):
-```
+```bash
+cd scan_api
+python3 -m venv venv
+source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-- Download and drop into the folder `/scan_api` an AI model for your Chessboard:
+- Download a Chess Piece Recognition Model
+You’ll need a trained YOLOv8 model to detect chess pieces:
 
     - [Original Model](https://onedrive.live.com/?authkey=%21AF%2Du7EjxE%5FFIkco&id=D75A1BACEEF1CA04%2168580&cid=D75A1BACEEF1CA04&parId=root&parQt=sharedby&o=OneUp) - Bigger
 
     - [Personal Model](https://1drv.ms/u/s!Aiwhxuyy_4jca2Jx8DmDG_L2C1o?e=Eu3LKf) - Custom for my board
 
-- Now, to get the API running:
+- Place the model in the scan_api folder.
 
-```
+- Then start the FastAPI server:
+
+```bash
 fastapi dev main.py
 ```
 
-And you're done, VIChess is now fully working.
+Now, the full VIChess app is functional, including image scanning and AI-based analysis.
 
-# Known issues
-- The AI Model has a very low accuracy for boards it hasn't seen before. That's why I've trained a new Model for my own board which is all right.
+## Known Issues
 
-- The images need a better place to be stored, like AWS (or an equivalent).
+- The AI model has lower accuracy with boards it hasn’t seen before — custom training is recommended.
 
-- The access to the API should be regulated to prevent attacks.
+- Images are stored locally; a cloud storage solution (like AWS S3 or Firebase) would be more reliable.
 
-- NextJS has a problem with the Stockfish Web Worker. Maybe think of another API just for Stockfish.
+- API access is unprotected — should implement authentication and rate limiting for production use.
+
+- The Stockfish Web Worker has compatibility issues with Next.js. Consider creating a dedicated backend service for Stockfish.
+
+## Inspiration & Credits
+- Dr Shai Nissan's [real-life-chess-vision](https://github.com/shainisan/real-life-chess-vision)
+
+- [React Chessboard](https://github.com/Clariity/react-chessboard/tree/main)
+
+## Contribution
+This project is open source and contributions are welcome! You can:
+
+- Improve detection accuracy with better-trained YOLO models
+
+- Refactor the frontend or backend code
+
+- Add PGN export/import
+
+- Build ELO tracking and player profiles
+
+- Improve UI and mobile responsiveness
+
+- Localize the app for multiple languages
+
+---
+
+**Don't forget to star the project if you've enjoyed my work here!**

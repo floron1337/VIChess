@@ -15,7 +15,7 @@ const Footer = () => {
                         </Link>
                         <p className='text-white text-lg'>All rights reserved.</p>
                     </div>
-                    <Link href="https://www.florinvenis.com/" target="_blank" className='flex flex-row gap-2 py-4 items-center hover:gap-8 ease'>
+                    <Link href="https://florinvenis.vercel.app/" target="_blank" className='flex flex-row gap-2 py-4 items-center hover:gap-8 ease'>
                         <div className='flex flex-row gap-2'>
                             <Image src='/static/img/fv_logo.png' alt="" width={60} height={60} />
                             <div className='flex flex-col text-white justify-center'>
